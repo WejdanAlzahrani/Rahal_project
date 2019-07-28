@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.shortcuts import render ,reverse
 from django.http import  HttpResponseRedirect
 from .form import ContactForm
@@ -32,6 +33,14 @@ def contact(request):
 
 
 
+=======
+from django.shortcuts import render
+from django.http import HttpResponse
+
+
+def about(request):
+    return render (request, 'about.html')
+>>>>>>> 85d5f9c90c42f21214535c4d7cd939c8bdcd876d
 
 
 
