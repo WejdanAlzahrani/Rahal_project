@@ -14,5 +14,7 @@ class blog(models.Model):
     content=models.TextField()
     publication_date=models.DateField(auto_now_add=True)
     readers=models.CharField(max_length=10,default='0')
+    country=models.CharField(max_length=50,default='none')
+    
     def __str__(self):
         return self.title
