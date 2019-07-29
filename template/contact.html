@@ -1,0 +1,26 @@
+{% extends base .html %}
+
+{% block title %}
+    Contact
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+        <h1>Contact Page</h1>
+
+            {% if messages %}
+                {% for i in messages %}
+                 <p> {{i}}</p>
+                {% endfor %}
+            {% endif %}
+        
+            <form action="" method="POST"> 
+            {% csrf_token%}
+            {{ form.as_p}}
+            <input type="submit" value="Send Email" class="send">
+            </form>
+
+      </div>  
+
+{% endblock %}
