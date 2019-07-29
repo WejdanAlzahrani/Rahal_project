@@ -1,6 +1,6 @@
 from django.shortcuts import render, reverse
 from django.http import HttpResponse, HttpResponseRedirect
-from .forms import ContactForm
+from .forms import ContactForm, blogForm
 from django.contrib import messages
 
 
@@ -26,3 +26,18 @@ def contact(request):
 
     data = {"form": form}
     return render(request, "contact.html", data)
+
+
+def add(request):
+    form = blogForm()
+    if request.method == "POST":
+	    form = blogForm(request.POST)
+	    if form.is_valid():
+	        blog = form.save(commit=False)
+	        if 'picture' in request.FILES:
+	            blog.picture = request.FILES['picture']
+	            blog.save()            
+	            messages.success(request, 'your Blog have been added succesfully')
+	        return HttpResponseRedirect(reverse('home'))
+    data ={'form': form}
+    return render(request, 'add_blog.html', data)
