@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* bases */
+
+a {
+    text-decoration: none;
+    color: rgb(251, 222, 75);
+}
+
+li {
+    padding: 20px;
+    list-style: none;
+}
+
+.navbar {
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    background-color: black;
+    color: rgb(251, 222, 75);
+}
+
+.navbar ul {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer {
+    background-color: black;
+    color: rgb(251, 222, 75);
+}
