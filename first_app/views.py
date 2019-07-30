@@ -91,3 +91,9 @@ def register(request):
 
     data={'userForm':userForm_obj,'profileForm':profileForm_obj}
     return render(request,'register.html',data)
+
+def logout_user(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('home'))
+
+

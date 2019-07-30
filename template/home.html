@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
     <title>Home</title>
 </head>
 
@@ -18,16 +19,21 @@
             <li><a href="{% url 'about'%}">About</a></li>
             <li><a href="{% url 'contact'%}">Contact</a></li>
             <li><a href="#">Countries</a></li>
+            {% if user.is_authenticated %}
+            <i class="far fa-user-circle"></i>
+            <li><a href="{% url 'logout'%}">Logout</a></li>
+            {% else %}
             <li><a href="{% url 'login'%}">Login</a></li>
+            {% endif %}
         </ul>
     </div>
-        {% for i in blog %}
-            <div class="card">
-                <img src="{{i.picture.url}}" alt="" height="50" width="60">
-                <p>{{i.title}}</p>
-                <p>{{i.publication_date}}</p>
-            </div>
-        {% endfor %}
+    {% for i in blog %}
+    <div class="card">
+        <img src="{{i.picture.url}}" alt="" height="50" width="60">
+        <p>{{i.title}}</p>
+        <p>{{i.publication_date}}</p>
+    </div>
+    {% endfor %}
 
 
 

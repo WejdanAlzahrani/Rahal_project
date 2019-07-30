@@ -6,6 +6,10 @@
 
 /* bases */
 
+body{
+    font-family: sans-serif;
+}
+
 a {
     text-decoration: none;
     color: rgb(251, 222, 75);
