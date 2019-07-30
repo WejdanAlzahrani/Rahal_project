@@ -30,7 +30,7 @@
     {% for i in blog %}
     <div class="card">
         <img src="{{i.picture.url}}" alt="" height="50" width="60">
-        <p>{{i.title}}</p>
+        <p><a href="{% url 'detials' i.pk %}">{{i.title}}</a></p>
         <p>{{i.publication_date}}</p>
     </div>
     {% endfor %}

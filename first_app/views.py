@@ -97,3 +97,9 @@ def logout_user(request):
     return HttpResponseRedirect(reverse('home'))
 
 
+def blogDetails(request,pk):
+    blog_obj=blog.objects.get(pk=pk)
+    data={'blog':blog_obj}
+    return render(request,'blogDetails.html',data)
+
+    
