@@ -13,3 +13,8 @@ class blogForm(forms.ModelForm):
 	        model = blog
 	        fields = ['title', 'Type','country', 'content', 'picture']
 
+
+class loginForm(forms.Form):
+    username=forms.CharField(max_length=15)
+    password=forms.CharField(widget=forms.PasswordInput)
+

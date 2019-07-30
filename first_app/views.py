@@ -1,6 +1,8 @@
 from django.shortcuts import render, reverse
 from django.http import HttpResponse, HttpResponseRedirect
-from .forms import ContactForm, blogForm
+from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
+from .forms import ContactForm, blogForm, loginForm
 from .models import blog
 from django.contrib import messages
 
@@ -43,3 +45,26 @@ def add(request):
 	        return HttpResponseRedirect(reverse('home'))
     data ={'form': form}
     return render(request, 'add_blog.html', data)
+
+
+def login_user(request):
+    form=loginForm()
+
+    if request.method =="POST":
+        form = loginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+
+            user = authenticate(username=username, password=password)
+            if user :
+                if user.is_active:
+                    login(request,user)
+                    return HttpResponseRedirect(reverse('home'))
+                else:
+                    messages.error(request, 'your account is blocked')
+            else:
+                messages.error(request, 'invalid username or password')
+    data={'form':form}
+
+    return render(request,'login.html',data)
