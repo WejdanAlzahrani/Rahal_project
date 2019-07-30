@@ -2,7 +2,7 @@ from django.shortcuts import render, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
-from .forms import ContactForm, blogForm, loginForm
+from .forms import ContactForm, blogForm, loginForm, userForm, profileForm
 from .models import blog
 from django.contrib import messages
 
@@ -68,3 +68,26 @@ def login_user(request):
     data={'form':form}
 
     return render(request,'login.html',data)
+
+
+def register(request):
+    userForm_obj=userForm()
+    profileForm_obj=profileForm()
+
+    if request.method=="POST":
+        userForm_obj=userForm(request.POST)
+        profileForm_obj=profileForm(request.POST)
+
+        if userForm_obj.is_valid() and profileForm_obj.is_valid():
+            user=userForm_obj.save(commit=False)
+            user.set_password(user.password)
+            user.save()
+
+            profile=profileForm_obj.save(commit=False)
+            profile.user=user
+            profile.save()
+
+            return HttpResponseRedirect(reverse('home'))
+
+    data={'userForm':userForm_obj,'profileForm':profileForm_obj}
+    return render(request,'register.html',data)
