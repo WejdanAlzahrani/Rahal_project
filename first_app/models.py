@@ -25,11 +25,11 @@ class profile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     mobile=models.CharField(max_length=20)
     GENDER_CHOICES=[
-        ('F','Female'),
-        ('M','Male'),
+        ('Female','Female'),
+        ('Male','Male'),
         (None,'Choose')
         ]
-    gender=models.CharField(max_length=1,choices=GENDER_CHOICES)
+    gender=models.CharField(max_length=6,choices=GENDER_CHOICES)
 
     def __str__(self):
         return self.user.username

@@ -20,7 +20,7 @@
             <li><a href="{% url 'contact'%}">Contact</a></li>
             <li><a href="#">Countries</a></li>
             {% if user.is_authenticated %}
-            <i class="far fa-user-circle"></i>
+            <a href="{% url 'profile' user.pk %}"><i class="far fa-user-circle"></i></a> 
             <li><a href="{% url 'logout'%}">Logout</a></li>
             {% else %}
             <li><a href="{% url 'login'%}">Login</a></li>

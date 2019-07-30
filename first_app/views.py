@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from .forms import ContactForm, blogForm, loginForm, userForm, profileForm
-from .models import blog
+from .models import blog, profile
 from django.contrib import messages
 
 
@@ -92,6 +92,7 @@ def register(request):
     data={'userForm':userForm_obj,'profileForm':profileForm_obj}
     return render(request,'register.html',data)
 
+@login_required
 def logout_user(request):
     logout(request)
     return HttpResponseRedirect(reverse('home'))
@@ -102,4 +103,8 @@ def blogDetails(request,pk):
     data={'blog':blog_obj}
     return render(request,'blogDetails.html',data)
 
-    
+@login_required
+def userProfile(request,pk):
+    profile_obj=profile.objects.get(pk=pk)
+    data={'profile':profile_obj}
+    return render(request,'profile.html',data)
