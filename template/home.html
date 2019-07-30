@@ -21,6 +21,16 @@
             <li><a href="#">Login</a></li>
         </ul>
     </div>
+        {% for i in blog %}
+            <div class="card">
+                <img src="{{i.picture.url}}" alt="" height="50" width="60">
+                <p>{{i.title}}</p>
+                <p>{{i.publication_date}}</p>
+            </div>
+        {% endfor %}
+
+
+
     <div class="footer">
         <p>Rahal 2019&copy; All Right Reserved</p>
     </div>

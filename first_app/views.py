@@ -1,11 +1,13 @@
 from django.shortcuts import render, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import ContactForm, blogForm
+from .models import blog
 from django.contrib import messages
 
 
 def home(request):
-    data = {}
+    blog_obj=blog.objects.all()
+    data = {'blog':blog_obj}
     return render(request, "home.html", data)
 
 
