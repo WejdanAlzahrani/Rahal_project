@@ -5,10 +5,10 @@
 {% block body_block %}
 <div>
     
-    <p>{{profile.user.first_name}} {{profile.user.last_name}} </p>
-    <p>{{profile.user.username}}</p>
-    <p>{{profile.mobile}}</p>
-    <p>{{profile.gender}}</p>
+    <p>Name: {{profile.user.first_name}} {{profile.user.last_name}} </p>
+    <p>User name: {{profile.user.username}}</p>
+    <p>Mobile: {{profile.mobile}}</p>
+    <p>Gender: {{profile.gender}}</p>
     
     <div class="button">
         <a href="{% url 'add'%}">Write a blog</a>

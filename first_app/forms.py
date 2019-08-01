@@ -16,7 +16,7 @@ class blogForm(forms.ModelForm):
 
 
 class loginForm(forms.Form):
-    username=forms.CharField(max_length=15)
+    username=forms.CharField(max_length=150)
     password=forms.CharField(widget=forms.PasswordInput)
 
 
