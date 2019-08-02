@@ -2,6 +2,8 @@
 
 {% block title_block %}{{profile.username}}|Profile{% endblock %}
 
+{% block subTitle_block %}Profile{% endblock %}
+
 {% block body_block %}
 <div>
     
@@ -11,7 +13,7 @@
     <p>Gender: {{profile.gender}}</p>
     
     <div class="button">
-        <a href="{% url 'add'%}">Write a blog</a>
+        <a href="{% url 'add'%}">Add a blog</a>
     </div>
 </div>
 

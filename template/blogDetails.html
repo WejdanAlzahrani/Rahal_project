@@ -2,12 +2,13 @@
 
 {% block title_block %}Details{% endblock %}
 
+{% block subTitle_block %}{{blog.title}}{% endblock %}
+
 {% block body_block %}
 
     <div>
         <img src="{{blog.picture.url}}" alt="blog image" height="50" width="60" >
-        <p>{{blog.title}}</p>
-        <p>Publish on {{blog.publication_date}}</p>
+        <p>Published on {{blog.publication_date}}</p>
         <p>{{blog.country}}</p>
         <p>{{blog.content}} </p>
         

@@ -1,22 +1,18 @@
 {% extends 'base.html' %}
+
+{% block title_block %}Add Blog{% endblock %}
+
+{% block subTitle_block %}Add Blog{% endblock %}
+
+{% block body_block %}
+
+<div class="container">
 	
-	{% block title_block %}
-	    Add Blog
-	{% endblock %}
-	
-	{% block body_block %}
-   
-	
-	
-	        
-	
-	        <div class="container">
-	        <h1>Add Blog</h1>
-	
-	        <form action="" method="POST" enctype="multipart/form-data">
-	            {% csrf_token %}
-	            {{form.as_p}}
-	            <input type="submit" value="Add blog" class="btn">
-	        </form>
-	    </div>
-		{% endblock %}
+
+	<form action="" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{form.as_p}}
+		<input type="submit" value="Add blog" class="btn">
+	</form>
+</div>
+{% endblock %}
