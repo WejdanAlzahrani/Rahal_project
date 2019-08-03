@@ -34,18 +34,19 @@ def contact(request):
 
 
 def add(request):
-    form = blogForm()
-    if request.method == "POST":
-	    form = blogForm(request.POST)
-	    if form.is_valid():
-	        blog = form.save(commit=False)
-	        if 'picture' in request.FILES:
-	            blog.picture = request.FILES['picture']
-	            blog.save()            
-	            messages.success(request, 'your Blog have been added succesfully')
-	        return HttpResponseRedirect(reverse('home'))
-    data ={'form': form}
-    return render(request, 'add_blog.html', data)
+    form=blogForm()
+    if request.method=='POST':
+        form=blogForm(request.POST)
+        if form.is_valid():
+            blog=form.save(commit=False)
+            if 'picture' in request.FILES:
+                blog.picture=request.FILES['picture']
+            blog.blogger=request.user
+            blog.save()
+            messages.success(request,'your blog added successfully')
+            return HttpResponseRedirect(reverse('home'))
+    data={'form':form}
+    return render(request,'add_blog.html',data)
 
 
 def login_user(request):
@@ -109,12 +110,17 @@ def logout_user(request):
 
 def blogDetails(request,pk):
     blog_obj=blog.objects.get(pk=pk)
+    readers=int(blog_obj.readers)
+    readers+=1
+    blog_obj.readers=readers
+    blog_obj.save()
     data={'blog':blog_obj}
     return render(request,'blogDetails.html',data)
-
+  
 @login_required
 def userProfile(request,pk):
     user = User.objects.get(pk=pk)
+    blogs=blog.objects.filter(blogger=user)
     profile_obj=profile.objects.get(user=user)
-    data={'profile':profile_obj}
+    data={'profile':profile_obj,'blogs':blogs}
     return render(request,'profile.html',data)

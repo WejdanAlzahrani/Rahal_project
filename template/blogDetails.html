@@ -2,16 +2,22 @@
 
 {% block title_block %}Details{% endblock %}
 
-{% block subTitle_block %}{{blog.title}}{% endblock %}
+{% block subTitle_block %}
+{{blog.title}}
+<h4 >By</h4>
+<h2> {{blog.blogger.first_name}} {{blog.blogger.last_name}}</h2>
+{% endblock %}
 
 {% block body_block %}
 
-    <div>
-        <img src="{{blog.picture.url}}" alt="blog image" height="50" width="60" >
-        <p>Published on {{blog.publication_date}}</p>
-        <p>{{blog.country}}</p>
-        <p>{{blog.content}} </p>
-        
-    </div>
+<div>
+    <header class="container">
+        <h4>{{blog.content}}</h4>
+        <p>{{blog.country}}, published on {{blog.publication_date}}</p>
 
-    {% endblock %}
+    </header>
+
+
+</div>
+
+{% endblock %}

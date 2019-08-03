@@ -8,6 +8,46 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
 
+/* customization */
+
+#profile #personal-info li{
+	list-style: none;
+	margin: 30px;
+	
+}
+
+#profile #personal-info{
+	display: flex;
+	overflow: hidden;
+	justify-content: center;
+	margin-top: 50px;
+	
+}
+
+.button a {
+	text-decoration: none;
+	
+}
+
+
+
+dl .horizontal-line {
+  margin:0 auto;
+  width: 50%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.349);
+}
+
+.white a{
+	color:white;
+
+}
+
+
+.container{
+	margin: 3rem;
+}
+
 /* Reset */
 
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -1926,8 +1966,8 @@
 		button.fit,
 		.button.fit {
 			display: block;
-			margin: 0 0 1rem 0;
-			width: 100%;
+			margin: 2rem auto;
+			width: 50%;
 		}
 
 		input[type="submit"].small,
@@ -2062,7 +2102,7 @@
 /* Form */
 
 	form {
-		margin: 0 0 2rem 0;
+		margin: 2rem 0 2rem 0;
 	}
 
 	label {
@@ -4318,3 +4358,4 @@
 .withoutBanner{
 	background-color: black;
 }
+

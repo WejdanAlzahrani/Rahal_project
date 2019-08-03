@@ -5,14 +5,45 @@
 {% block subTitle_block %}Profile{% endblock %}
 
 {% block body_block %}
-<div>
-    
-    <p>Name: {{profile.user.first_name}} {{profile.user.last_name}} </p>
-    <p>User name: {{profile.user.username}}</p>
-    <p>Mobile: {{profile.mobile}}</p>
-    <p>Gender: {{profile.gender}}</p>
-    
-    <div class="button">
+<div id="profile">
+    <div id="personal-info">
+        <ul>
+            <li>
+                <h4>Name: {{profile.user.first_name}} {{profile.user.last_name}} </h4>
+            </li>
+            <li>
+                <h4>Gender: {{profile.gender}}</h4>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <h4>User name: {{profile.user.username}} </h4>
+            </li>
+            <li>
+                <h4>Mobile: {{profile.mobile}}</h4>
+            </li>
+        </ul>
+
+    </div>
+
+    <h4 class="align-center">My blogs </h4>
+
+    {% if blogs %}
+    {% for blog in blogs %}
+    <dl>
+        <dt>{{blog.title}}</dt>
+        <dd>
+            <p>{{blog.content}}</p>
+        </dd>
+        <div class="horizontal-line"></div>
+        {% endfor %}
+        {% else %}
+        <dd>
+            <p class="align-center">No blogs yet</p>
+        </dd>
+        {%endif%}
+    </dl>
+    <div class="button special fit white" >
         <a href="{% url 'add'%}">Add a blog</a>
     </div>
 </div>

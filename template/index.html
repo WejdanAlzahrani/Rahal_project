@@ -26,7 +26,7 @@
 	<nav id="menu">
 		<ul class="links">
 			<li><a href="{% url 'home'%}">Home</a></li>
-			<li><a href="#about">About</a></li>
+			<li><a href="{% url 'about'%}">About</a></li>
 			<li><a href="{% url 'contact'%}">Contact</a></li>
 			<li><a href="#">Countries</a></li>
 			{% if user.is_authenticated %}
@@ -41,25 +41,25 @@
 	<!-- Banner -->
 	<section class="banner full">
 		<article>
-			<img src="{% static 'images/slide01.jpg'%}" alt="" />
+			<img src="{% static 'images/adventure.jpg'%}" alt="" />
 			<div class="inner">
 				<header>
-					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa, sed.<a href="https://templated.co">TEMPLATED</a></p>
+					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa</p>
 					<h2>Adventure</h2>
 				</header>
 			</div>
 		</article>
 		<article>
-			<img src="{% static 'images/slide02.jpg'%}" alt="" />
+			<img src="{% static 'images/downtown.jpg'%}" alt="" />
 			<div class="inner">
 				<header>
 					<p>Lorem ipsum dolor sit amet nullam feugiat</p>
-					<h2>Our world in blog</h2>
+					<h2>Our world in a blog</h2>
 				</header>
 			</div>
 		</article>
 		<article>
-			<img src="{% static 'images/slide03.jpg'%}" alt="" />
+			<img src="{% static 'images/skyscrapers.jpg'%}" alt="" />
 			<div class="inner">
 				<header>
 					<p>Sed cursus aliuam veroeros lorem ipsum nullam</p>
@@ -68,7 +68,7 @@
 			</div>
 		</article>
 		<article>
-			<img src="{% static 'images/slide04.jpg'%}" alt="" />
+			<img src="{% static 'images/discover.jpg'%}" alt="" />
 			<div class="inner">
 				<header>
 					<p>Adipiscing lorem ipsum feugiat sed phasellus consequat</p>
@@ -77,11 +77,11 @@
 			</div>
 		</article>
 		<article>
-			<img src="{% static 'images/slide05.jpg'%}" alt="" />
+			<img src="{% static 'images/dark-brick.jpg'%}" alt="" />
 			<div class="inner">
 				<header>
 					<p>Ipsum dolor sed magna veroeros lorem ipsum</p>
-					<h2></h2>
+					<h2>incredible stories</h2>
 				</header>
 			</div>
 		</article>
@@ -95,9 +95,9 @@
 				{% for i in blog %}
 				<div>
 					<div class="box">
-						<div class="image fit">
+						<span class="image fit">
 							<img src="{{i.picture.url}}" alt="" />
-						</div>
+						</span>
 						
 						<div class="content">
 							<header class="align-center">
@@ -105,6 +105,7 @@
 								<h2>{{i.title}}</h2>
 							</header>
 							<p> {{i.content}}</p>
+							<p>{{i.readers}} readers</p>
 							<footer class="align-center">
 								<a href="{% url 'detials' i.pk %}" class="button alt">Read</a>
 							</footer>
@@ -118,21 +119,7 @@
 		</div>
 	</section>
 
-
-	<!-- Two -->
-	<section id="two" class="wrapper style3">
-		<div class="inner">
-			<header class="align-center">
-				<h2 id="about" >About Rahal</h2>
-				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit odio, voluptatum aliquid ab nostrum architecto pariatur explicabo blanditiis eius illo.</p>
-				<div class="links">
-					<a href="{% url 'about'%}">Read more</a>
-				</div>
-			</header>
-		</div>
-	</section>
 	<section id="three" class="wrapper style2"></section>
-	
 	<!-- Footer -->
 	<footer id="footer">
 		<div class="container">

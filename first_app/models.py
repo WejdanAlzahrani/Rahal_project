@@ -9,13 +9,20 @@ class blog(models.Model):
         (None,'Choose')
         ]
 
+    COUNTRY_CHOICES=[
+        ('India','India'),
+        ('Afghanistan','Afghanistan'),
+        ('Indonesia','Indonesia'),
+        (None,'Choose')
+        ]
     title=models.CharField(max_length=100)
     Type=models.CharField(max_length=6,choices=TYPE_CHOICES)
     content=models.TextField()
     publication_date=models.DateField(auto_now_add=True)
     readers=models.CharField(max_length=10,default='0')
-    country=models.CharField(max_length=50,default='none')
+    country=models.CharField(max_length=11,choices=COUNTRY_CHOICES)
     picture = models.ImageField(upload_to='blogPics')
+    blogger=models.ForeignKey(User,on_delete=models.CASCADE, default=None)
     
     def __str__(self):
         return self.title
