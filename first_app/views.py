@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import ContactForm, blogForm, loginForm, userForm, profileForm
 from .models import blog, profile
 from django.contrib import messages
-
+from rest_framework import viewsets
+from .serializers import blogSerializer , profileSerializer
 
 def home(request):
     blog_obj=blog.objects.all()
@@ -124,3 +125,12 @@ def userProfile(request,pk):
     profile_obj=profile.objects.get(user=user)
     data={'profile':profile_obj,'blogs':blogs}
     return render(request,'profile.html',data)
+
+class blogViewSet(viewsets.ModelViewSet):
+    queryset=blog.objects.all()
+    serializer_class=blogSerializer
+
+
+class profileViewSet(viewsets.ModelViewSet):
+    queryset=profile.objects.all()
+    serializer_class=profileSerializer

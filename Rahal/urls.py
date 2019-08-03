@@ -18,6 +18,13 @@ from django.urls import path
 from first_app import views
 from django.conf.urls.static import static
 from django.conf import settings
+from django.conf.urls import include
+from rest_framework import routers
+
+
+router=routers.DefaultRouter()
+router.register(r'blogs', views.blogViewSet)
+router.register(r'profiles', views.profileViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,3 +39,5 @@ urlpatterns = [
     path('detials/<int:pk>', views.blogDetails, name='detials'),
     path('profile/<int:pk>', views.userProfile, name='profile'),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+urlpatterns+=[ path('api/', include(router.urls))]
